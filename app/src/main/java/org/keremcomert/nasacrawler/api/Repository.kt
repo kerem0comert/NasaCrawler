@@ -21,7 +21,7 @@ class Repository @Inject constructor(private val sourceApi: SourceApi) {
      * but exposes it as a LiveData for the front-end to consume.
      */
     fun getResults(selectedRover: String) =
-        Pager(config = PagingConfig(pageSize = 10, maxSize = 100, enablePlaceholders = false),
+        Pager(config = PagingConfig(pageSize = 25, maxSize = 100, enablePlaceholders = false),
             pagingSourceFactory  = { PagingSource(sourceApi = sourceApi, selectedRover = selectedRover) })
             .liveData
 }
