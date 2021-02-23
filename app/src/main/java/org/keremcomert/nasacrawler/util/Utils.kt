@@ -7,6 +7,7 @@ const val BASE_URL = "https://api.nasa.gov/mars-photos/api/v1/rovers/"
 const val INITIAL_PAGE_INDEX = 1
 const val API_KEY = BuildConfig.NASA_KEY
 const val CURRENT_ROVER = "currentRover"
-const val ROVER_CURIOSITY = "curiosity"
-const val ROVER_OPPORTUNITY = "opportunity"
-const val ROVER_SPIRIT = "spirit"
+const val ROVER_CURIOSITY = "Curiosity"
+const val ROVER_OPPORTUNITY = "Opportunity"
+const val ROVER_SPIRIT = "Spirit"
+

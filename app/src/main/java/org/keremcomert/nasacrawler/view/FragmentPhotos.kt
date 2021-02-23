@@ -5,7 +5,9 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.tabs.TabLayout
 import dagger.hilt.android.AndroidEntryPoint
 import org.keremcomert.nasacrawler.R
 import org.keremcomert.nasacrawler.controller.PhotoAdapter
@@ -18,12 +20,27 @@ class FragmentPhotos: Fragment(R.layout.fragment_photos), PhotoAdapter.OnPhotoSe
     private val viewModel by viewModels<PhotoViewModel>()
     private var b: FragmentPhotosBinding? = null
     private lateinit var photoAdapter: PhotoAdapter
-
+    private val args: FragmentPhotosArgs by navArgs()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         b = FragmentPhotosBinding.bind(view)
+        viewModel.currentRover.value = args.selectedRover
         initRecyclerView()
+        initTabLayout()
+    }
+
+    private fun initTabLayout(){
+        b?.apply {
+            tabLayoutRovers.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener{
+                override fun onTabSelected(tab: TabLayout.Tab?) {
+                    viewModel.currentRover.value = tab?.text.toString()
+                    photoAdapter.retry()
+                }
+                override fun onTabUnselected(tab: TabLayout.Tab?) {}
+                override fun onTabReselected(tab: TabLayout.Tab?) {}
+            })
+        }
     }
 
     private fun initRecyclerView(){

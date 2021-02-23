@@ -9,8 +9,7 @@ import org.keremcomert.nasacrawler.util.BASE_URL
 import org.keremcomert.nasacrawler.util.INITIAL_PAGE_INDEX
 import retrofit2.HttpException
 import java.io.IOException
-
-
+import java.util.*
 
 
 /**
@@ -41,7 +40,7 @@ class PagingSource(
         val currentPage = params.key ?: INITIAL_PAGE_INDEX
 
         return try{
-            val urlToGet = "$selectedRover/photos?sol=1000&api_key=$API_KEY&page=$currentPage"
+            val urlToGet = "${selectedRover.toLowerCase(Locale.ROOT)}/photos?sol=1000&api_key=$API_KEY&page=$currentPage"
             Log.d("myphotos", BASE_URL + urlToGet)
             val response = sourceApi.getPhotos(urlToGet)
             Log.d("myphotos", currentPage.toString())

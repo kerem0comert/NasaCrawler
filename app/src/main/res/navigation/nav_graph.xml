@@ -13,6 +13,13 @@
         <action
             android:id="@+id/action_fragmentPhotos_to_fragmentPhotoDetails"
             app:destination="@id/fragmentPhotoDetails" />
+        <action
+            android:id="@+id/action_fragmentPhotos_to_fragmentPhotos"
+            app:destination="@id/fragmentPhotos" />
+        <argument
+            android:name="selectedRover"
+            android:defaultValue="Curiosity"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/fragmentPhotoDetails"

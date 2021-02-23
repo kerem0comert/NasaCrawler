@@ -27,7 +27,7 @@ class PhotoViewModel @ViewModelInject constructor(private val repository: Reposi
                                                     @Assisted state: SavedStateHandle
 ): ViewModel() {
 
-    private val currentRover = state.getLiveData(CURRENT_ROVER, ROVER_CURIOSITY)
+    val currentRover = state.getLiveData(CURRENT_ROVER, ROVER_CURIOSITY)
 
     /**
      * Retrieve the results from the middle-ware, by using liveData's switchMap() method.
