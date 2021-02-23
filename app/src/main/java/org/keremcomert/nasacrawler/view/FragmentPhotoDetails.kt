@@ -23,14 +23,18 @@ class FragmentPhotoDetails: Fragment(R.layout.fragment_photo_details) {
         b = FragmentPhotoDetailsBinding.bind(view)
         b?.apply {
             Glide.with(requireContext())
-            .load(args.photo.imgSrc)//.load("https://openthread.google.cn/images/ot-contrib-google.png")//
+            .load(args.photo.imgSrc)
             .dontAnimate()
             .centerCrop()
             .transition(DrawableTransitionOptions.withCrossFade())
             .error(R.drawable.ic_nasa)
             .into(ivDetailPhoto)
 
+            tvCameraName.text = args.photo.camera.fullName
             tvRoverName.text = args.photo.rover.name
+            tvRoverDate.text = getString(R.string.rover_dates,
+                args.photo.rover.launchDate, args.photo.rover.landingDate)
+            tvRoverStatus.text = args.photo.rover.status
         }
     }
 

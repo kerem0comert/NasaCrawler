@@ -1,27 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".view.FragmentPhotoDetails"
-   android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical"
+    tools:context=".view.FragmentPhotoDetails">
+
 
     <ImageView
         android:id="@+id/ivDetailPhoto"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:src="@mipmap/ic_launcher"
         android:layout_width="match_parent"
-        android:layout_height="150dp"/>
+        android:layout_height="150dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@mipmap/ic_launcher" />
+
+
+    <TextView
+        android:id="@+id/tvCameraName"
+        style="@style/Drawable_TextViewStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:drawableStartCompat="@drawable/ic_camera"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivDetailPhoto"
+        tools:text="FHAZ - 10/11/20" />
 
     <TextView
         android:id="@+id/tvRoverName"
-        android:layout_marginTop="8dp"
-        tools:text="rover"
-        app:layout_constraintTop_toBottomOf="@id/ivDetailPhoto"
-        app:layout_constraintStart_toStartOf="parent"
+        style="@style/Drawable_TextViewStyle"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:drawableStartCompat="@drawable/ic_rover"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivDetailPhoto"
+        tools:text="Spirit" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/tvRoverDate"
+        style="@style/Drawable_TextViewStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:drawableStartCompat="@drawable/ic_mars"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivDetailPhoto"
+        tools:text="Launch: 09/01/19 - Landing: 10/01/19" />
+
+    <TextView
+        android:id="@+id/tvRoverStatus"
+        style="@style/Drawable_TextViewStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:drawableStartCompat="@drawable/ic_power"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivDetailPhoto"
+        tools:text="Active" />
+
+
+</LinearLayout>

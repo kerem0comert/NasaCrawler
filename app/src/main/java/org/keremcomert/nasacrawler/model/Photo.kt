@@ -22,7 +22,7 @@ data class Camera(
 data class Rover(
         val name: String,
         @SerializedName("landing_date") val landingDate: String,
-        @SerializedName("launc_date") val launchDate: String,
+        @SerializedName("launch_date") val launchDate: String,
         val status: String
 ): Parcelable
 
