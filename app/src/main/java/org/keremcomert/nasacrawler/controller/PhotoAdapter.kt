@@ -1,17 +1,21 @@
 package org.keremcomert.nasacrawler.controller
 
 import android.os.Build
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import org.keremcomert.nasacrawler.R
 import org.keremcomert.nasacrawler.databinding.ItemPhotoBinding
 import org.keremcomert.nasacrawler.model.Photo
 
-class PhotoAdapter(private val listener: OnPhotoSelectedListener)
-    : PagingDataAdapter<Photo, PhotoAdapter.PhotoViewHolder>(PHOTO_COMPARATOR){
+class PhotoAdapter(private val listener: OnPhotoSelectedListener) :
+    PagingDataAdapter<Photo, PhotoAdapter.PhotoViewHolder>(PHOTO_COMPARATOR) {
 
     /**
      * RecyclerView's DiffUtil class provides an easy way to compare two items, based on their
@@ -20,10 +24,11 @@ class PhotoAdapter(private val listener: OnPhotoSelectedListener)
      * acts as a primary key in this context, and can be used to determine whether two items
      * are the same.
      */
-    companion object{
-        private val PHOTO_COMPARATOR = object: DiffUtil.ItemCallback<Photo>(){
+    companion object {
+        private val PHOTO_COMPARATOR = object : DiffUtil.ItemCallback<Photo>() {
             override fun areItemsTheSame(oldItem: Photo, newItem: Photo): Boolean =
                 oldItem.id == newItem.id
+
             override fun areContentsTheSame(oldItem: Photo, newItem: Photo): Boolean =
                 oldItem == newItem
         }
@@ -33,18 +38,32 @@ class PhotoAdapter(private val listener: OnPhotoSelectedListener)
         fun onPhotoSelected(id: String)
     }
 
-    class PhotoViewHolder(private val b: ItemPhotoBinding, private val listener: OnPhotoSelectedListener)
-        : RecyclerView.ViewHolder(b.root) {
-        internal fun bind(photo: Photo){
-            b.apply {}
+    class PhotoViewHolder(
+        private val b: ItemPhotoBinding,
+        private val listener: OnPhotoSelectedListener
+    ) : RecyclerView.ViewHolder(b.root) {
+        internal fun bind(photo: Photo) {
+            Log.d("myphotos", photo.imgSrc)
+            b.apply {
+                Glide.with(itemView)
+                    .load(photo.imgSrc)//.load("https://openthread.google.cn/images/ot-contrib-google.png")//
+                    .dontAnimate()
+                    .centerCrop()
+                    .transition(DrawableTransitionOptions.withCrossFade())
+                    .error(R.drawable.ic_nasa)
+                    .into(ivPhoto)
+
+            }
         }
 
     }
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PhotoViewHolder =
-        PhotoViewHolder(ItemPhotoBinding
-            .inflate(LayoutInflater.from(parent.context), parent, false), listener)
+        PhotoViewHolder(
+            ItemPhotoBinding
+                .inflate(LayoutInflater.from(parent.context), parent, false), listener
+        )
 
     /**
      * This syntax is concise and easy to understand, so that's what I preferred here for this

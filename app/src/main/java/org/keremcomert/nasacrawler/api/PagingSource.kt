@@ -43,7 +43,7 @@ class PagingSource(
             val urlToGet = "$selectedRover/photos?sol=1000&api_key=$API_KEY"
             Log.d("myphotos", BASE_URL + urlToGet)
             val response = sourceApi.getPhotos(urlToGet)
-            response.photos.forEach { Log.d("myphotos", it.imgSrc)}
+           // response.photos.forEach { Log.d("myphotos", it.imgSrc)}
             LoadResult.Page(
                 data = response.photos,
                 prevKey = if(currentPage == INITIAL_PAGE_INDEX) null else currentPage - 1,

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import org.keremcomert.nasacrawler.R
 import org.keremcomert.nasacrawler.controller.PhotoAdapter
@@ -25,15 +26,18 @@ class FragmentPhotos: Fragment(R.layout.fragment_photos), PhotoAdapter.OnPhotoSe
 
     private fun initRecyclerView(){
         photoAdapter = PhotoAdapter(this)
-        b?.rvPhotos?.apply {
-            setHasFixedSize(true)
-            adapter = photoAdapter
-        }
 
         /**
          * The adapter is now tightly bound to any changes in the viewModel.
          */
         viewModel.photos.observe(viewLifecycleOwner) { photoAdapter.submitData(viewLifecycleOwner.lifecycle, it) }
+
+        b?.rvPhotos?.apply {
+            layoutManager = LinearLayoutManager(requireContext())
+            setHasFixedSize(true)
+            adapter = photoAdapter
+        }
+
     }
 
     override fun onDestroyView() {
