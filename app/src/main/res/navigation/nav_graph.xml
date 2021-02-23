@@ -18,5 +18,9 @@
         android:id="@+id/fragmentPhotoDetails"
         android:name="org.keremcomert.nasacrawler.view.FragmentPhotoDetails"
         android:label="fragment_photo_details"
-        tools:layout="@layout/fragment_photo_details" />
+        tools:layout="@layout/fragment_photo_details" >
+        <argument
+            android:name="photo"
+            app:argType="org.keremcomert.nasacrawler.model.Photo" />
+    </fragment>
 </navigation>

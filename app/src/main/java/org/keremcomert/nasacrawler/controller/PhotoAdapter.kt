@@ -35,7 +35,7 @@ class PhotoAdapter(private val listener: OnPhotoSelectedListener) :
     }
 
     interface OnPhotoSelectedListener {
-        fun onPhotoSelected(id: String)
+        fun onPhotoSelected(photo: Photo)
     }
 
     class PhotoViewHolder(
@@ -52,7 +52,7 @@ class PhotoAdapter(private val listener: OnPhotoSelectedListener) :
                     .transition(DrawableTransitionOptions.withCrossFade())
                     .error(R.drawable.ic_nasa)
                     .into(ivPhoto)
-
+                llPhoto.setOnClickListener{listener.onPhotoSelected(photo)}
             }
         }
 
