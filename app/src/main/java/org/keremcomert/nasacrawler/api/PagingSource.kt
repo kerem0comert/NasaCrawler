@@ -2,6 +2,7 @@ package org.keremcomert.nasacrawler.api
 
 import android.util.Log
 import androidx.paging.PagingSource
+import androidx.paging.PagingState
 import org.keremcomert.nasacrawler.model.Photo
 import org.keremcomert.nasacrawler.util.API_KEY
 import org.keremcomert.nasacrawler.util.BASE_URL
@@ -55,4 +56,6 @@ class PagingSource(
             LoadResult.Error(e)
         }
     }
+
+    override fun getRefreshKey(state: PagingState<Int, Photo>): Int? = state.anchorPosition
 }

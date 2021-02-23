@@ -3,7 +3,7 @@ package org.keremcomert.nasacrawler.di
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ApplicationComponent
+import dagger.hilt.components.SingletonComponent
 import org.keremcomert.nasacrawler.api.SourceApi
 import org.keremcomert.nasacrawler.util.BASE_URL
 import retrofit2.Retrofit
@@ -16,7 +16,7 @@ import javax.inject.Singleton
  * SDK.
  */
 @Module
-@InstallIn(ApplicationComponent::class)
+@InstallIn(SingletonComponent::class)
 object AppModule {
 
 
