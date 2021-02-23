@@ -21,6 +21,10 @@ android {
         buildConfigField("String", "NASA_KEY", nasa_key)
     }
 
+    buildFeatures {
+        viewBinding true
+    }
+
     buildTypes {
         release {
             minifyEnabled false
