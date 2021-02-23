@@ -16,7 +16,7 @@ import org.keremcomert.nasacrawler.model.Photo
 import org.keremcomert.nasacrawler.viewmodel.PhotoViewModel
 
 @AndroidEntryPoint
-class FragmentPhotos: Fragment(R.layout.fragment_photos), PhotoAdapter.OnPhotoSelectedListener {
+class FragmentPhotos : Fragment(R.layout.fragment_photos), PhotoAdapter.OnPhotoSelectedListener {
     private val viewModel by viewModels<PhotoViewModel>()
     private var b: FragmentPhotosBinding? = null
     private lateinit var photoAdapter: PhotoAdapter
@@ -30,26 +30,31 @@ class FragmentPhotos: Fragment(R.layout.fragment_photos), PhotoAdapter.OnPhotoSe
         initTabLayout()
     }
 
-    private fun initTabLayout(){
+    private fun initTabLayout() {
         b?.apply {
-            tabLayoutRovers.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener{
+            tabLayoutRovers.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
                 override fun onTabSelected(tab: TabLayout.Tab?) {
                     viewModel.currentRover.value = tab?.text.toString()
                     photoAdapter.retry()
                 }
+
                 override fun onTabUnselected(tab: TabLayout.Tab?) {}
                 override fun onTabReselected(tab: TabLayout.Tab?) {}
             })
         }
     }
 
-    private fun initRecyclerView(){
+    private fun initRecyclerView() {
         photoAdapter = PhotoAdapter(this)
 
         /**
          * The adapter is now tightly bound to any changes in the viewModel.
          */
-        viewModel.photos.observe(viewLifecycleOwner) { photoAdapter.submitData(viewLifecycleOwner.lifecycle, it) }
+        viewModel.photos.observe(viewLifecycleOwner) {
+            photoAdapter.submitData(
+                viewLifecycleOwner.lifecycle,
+                it)
+        }
 
         b?.rvPhotos?.apply {
             layoutManager = LinearLayoutManager(requireContext())
@@ -65,7 +70,12 @@ class FragmentPhotos: Fragment(R.layout.fragment_photos), PhotoAdapter.OnPhotoSe
     }
 
     override fun onPhotoSelected(photo: Photo) {
-        findNavController().navigate(FragmentPhotosDirections.actionFragmentPhotosToFragmentPhotoDetails(photo))
+        findNavController().navigate(
+            FragmentPhotosDirections
+                .actionFragmentPhotosToFragmentPhotoDetails(
+                    photo,
+                    viewModel.currentRover.value!!,
+                    photo.id.toString()))
     }
 
 }

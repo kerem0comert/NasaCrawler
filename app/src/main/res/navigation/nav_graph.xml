@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/fragmentPhotos"
         android:name="org.keremcomert.nasacrawler.view.FragmentPhotos"
-        android:label="fragment_photos"
+        android:label="@string/fragment_photos_label"
         tools:layout="@layout/fragment_photos" >
         <action
             android:id="@+id/action_fragmentPhotos_to_fragmentPhotoDetails"
@@ -24,10 +24,16 @@
     <fragment
         android:id="@+id/fragmentPhotoDetails"
         android:name="org.keremcomert.nasacrawler.view.FragmentPhotoDetails"
-        android:label="fragment_photo_details"
+        android:label="@string/fragment_photo_details_label"
         tools:layout="@layout/fragment_photo_details" >
         <argument
             android:name="photo"
             app:argType="org.keremcomert.nasacrawler.model.Photo" />
+        <argument
+            android:name="selectedRover"
+            app:argType="string" />
+        <argument
+            android:name="selectedPhotoID"
+            app:argType="string" />
     </fragment>
 </navigation>

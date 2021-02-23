@@ -3,4 +3,6 @@
     <string name="curiosity">Curiosity</string>
     <string name="opportunity">Opportunity</string>
     <string name="spirit">Spirit</string>
+    <string name="fragment_photos_label">Mars Photos</string>
+    <string name="fragment_photo_details_label">{selectedRover} - Photo #{selectedPhotoID}</string>
 </resources>
