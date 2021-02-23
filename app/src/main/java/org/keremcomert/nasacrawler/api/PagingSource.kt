@@ -1,8 +1,10 @@
 package org.keremcomert.nasacrawler.api
 
+import android.util.Log
 import androidx.paging.PagingSource
 import org.keremcomert.nasacrawler.model.Photo
 import org.keremcomert.nasacrawler.util.API_KEY
+import org.keremcomert.nasacrawler.util.BASE_URL
 import org.keremcomert.nasacrawler.util.INITIAL_PAGE_INDEX
 import retrofit2.HttpException
 import java.io.IOException
@@ -39,12 +41,13 @@ class PagingSource(
 
         return try{
             val urlToGet = "$selectedRover/photos?sol=1000&api_key=$API_KEY"
+            Log.d("myphotos", BASE_URL + urlToGet)
             val response = sourceApi.getPhotos(urlToGet)
-
+            response.photos.forEach { Log.d("myphotos", it.imgSrc)}
             LoadResult.Page(
-                data = response.results,
+                data = response.photos,
                 prevKey = if(currentPage == INITIAL_PAGE_INDEX) null else currentPage - 1,
-                nextKey = if(response.results.isEmpty()) null else currentPage + 1
+                nextKey = if(response.photos.isEmpty()) null else currentPage + 1
             )
         }catch (e: HttpException){
             LoadResult.Error(e)

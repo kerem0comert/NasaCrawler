@@ -6,13 +6,15 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import org.keremcomert.nasacrawler.R
+import org.keremcomert.nasacrawler.controller.PhotoAdapter
 import org.keremcomert.nasacrawler.databinding.FragmentPhotosBinding
 import org.keremcomert.nasacrawler.viewmodel.PhotoViewModel
 
 @AndroidEntryPoint
-class FragmentPhotos: Fragment(R.layout.fragment_photos) {
+class FragmentPhotos: Fragment(R.layout.fragment_photos), PhotoAdapter.OnPhotoSelectedListener {
     private val viewModel by viewModels<PhotoViewModel>()
     private var b: FragmentPhotosBinding? = null
+    private lateinit var photoAdapter: PhotoAdapter
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -22,12 +24,25 @@ class FragmentPhotos: Fragment(R.layout.fragment_photos) {
     }
 
     private fun initRecyclerView(){
+        photoAdapter = PhotoAdapter(this)
+        b?.rvPhotos?.apply {
+            setHasFixedSize(true)
+            adapter = photoAdapter
+        }
 
+        /**
+         * The adapter is now tightly bound to any changes in the viewModel.
+         */
+        viewModel.photos.observe(viewLifecycleOwner) { photoAdapter.submitData(viewLifecycleOwner.lifecycle, it) }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         b = null
+    }
+
+    override fun onPhotoSelected(id: String) {
+        TODO("Not yet implemented")
     }
 
 }

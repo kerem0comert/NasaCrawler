@@ -4,7 +4,9 @@ import androidx.hilt.Assisted
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.switchMap
 import androidx.lifecycle.viewModelScope
+import androidx.paging.cachedIn
 import org.keremcomert.nasacrawler.api.Repository
 import org.keremcomert.nasacrawler.util.CURRENT_ROVER
 import org.keremcomert.nasacrawler.util.ROVER_CURIOSITY
@@ -27,4 +29,10 @@ class PhotoViewModel @ViewModelInject constructor(private val repository: Reposi
 
     private val currentRover = state.getLiveData(CURRENT_ROVER, ROVER_CURIOSITY)
 
+    /**
+     * Retrieve the results from the middle-ware, by using liveData's switchMap() method.
+     * switchMap() is used to make sure that the data change happens when there is at least one observer,
+     * in the app's case that is the adapter that fills the rvPhotos.
+     */
+    val photos = currentRover.switchMap { repository.getResults(it!!).cachedIn(viewModelScope) }
 }

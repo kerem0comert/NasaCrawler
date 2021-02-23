@@ -3,5 +3,5 @@ package org.keremcomert.nasacrawler.api
 import org.keremcomert.nasacrawler.model.Photo
 
 data class Response(
-    val results: List<Photo>
+    val photos: List<Photo>
 )
