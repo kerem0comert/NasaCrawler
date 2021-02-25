@@ -1,0 +1,68 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>PhotoAdapter - app</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">app</a>&nbsp;/&nbsp;<a href="../index.html">org.keremcomert.nasacrawler.controller</a>&nbsp;/&nbsp;<a href="./index.html">PhotoAdapter</a><br/>
+<br/>
+<h1>PhotoAdapter</h1>
+<code><span class="keyword">class </span><span class="identifier">PhotoAdapter</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">PagingDataAdapter</span><span class="symbol">&lt;</span><a href="../../org.keremcomert.nasacrawler.model/-photo/index.html"><span class="identifier">Photo</span></a><span class="symbol">,</span>&nbsp;<a href="-photo-view-holder/index.html"><span class="identifier">PhotoViewHolder</span></a><span class="symbol">&gt;</span></code>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-on-photo-selected-listener/index.html">OnPhotoSelectedListener</a></p>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">OnPhotoSelectedListener</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-photo-view-holder/index.html">PhotoViewHolder</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">PhotoViewHolder</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">ViewHolder</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">PhotoAdapter</span><span class="symbol">(</span><span class="identifier" id="org.keremcomert.nasacrawler.controller.PhotoAdapter$<init>(org.keremcomert.nasacrawler.controller.PhotoAdapter.OnPhotoSelectedListener)/listener">listener</span><span class="symbol">:</span>&nbsp;<a href="-on-photo-selected-listener/index.html"><span class="identifier">OnPhotoSelectedListener</span></a><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="on-bind-view-holder.html">onBindViewHolder</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">onBindViewHolder</span><span class="symbol">(</span><span class="identifier" id="org.keremcomert.nasacrawler.controller.PhotoAdapter$onBindViewHolder(org.keremcomert.nasacrawler.controller.PhotoAdapter.PhotoViewHolder, kotlin.Int)/holder">holder</span><span class="symbol">:</span>&nbsp;<a href="-photo-view-holder/index.html"><span class="identifier">PhotoViewHolder</span></a><span class="symbol">, </span><span class="identifier" id="org.keremcomert.nasacrawler.controller.PhotoAdapter$onBindViewHolder(org.keremcomert.nasacrawler.controller.PhotoAdapter.PhotoViewHolder, kotlin.Int)/position">position</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>This syntax is concise and easy to understand, so that's what I preferred here for this
+simple demonstration. However, if devices under build level 26 need to be supported,
+a more traditional approach where the binding happens within the OnBindViewHolder(PhotoViewHolder, Int)
+would also be possible.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="on-create-view-holder.html">onCreateViewHolder</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">onCreateViewHolder</span><span class="symbol">(</span><span class="identifier" id="org.keremcomert.nasacrawler.controller.PhotoAdapter$onCreateViewHolder(android.view.ViewGroup, kotlin.Int)/parent">parent</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/view/ViewGroup.html"><span class="identifier">ViewGroup</span></a><span class="symbol">, </span><span class="identifier" id="org.keremcomert.nasacrawler.controller.PhotoAdapter$onCreateViewHolder(android.view.ViewGroup, kotlin.Int)/viewType">viewType</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="-photo-view-holder/index.html"><span class="identifier">PhotoViewHolder</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

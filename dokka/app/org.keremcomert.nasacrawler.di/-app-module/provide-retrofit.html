@@ -1,0 +1,19 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>AppModule.provideRetrofit - app</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">app</a>&nbsp;/&nbsp;<a href="../index.html">org.keremcomert.nasacrawler.di</a>&nbsp;/&nbsp;<a href="index.html">AppModule</a>&nbsp;/&nbsp;<a href="./provide-retrofit.html">provideRetrofit</a><br/>
+<br/>
+<h1>provideRetrofit</h1>
+<a name="org.keremcomert.nasacrawler.di.AppModule$provideRetrofit()"></a>
+<code><span class="identifier">@Singleton</span> <span class="identifier">@Provides</span> <span class="keyword">fun </span><span class="identifier">provideRetrofit</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Retrofit</span></code>
+<p>The provide function needed for Hilt to inject the Retrofit API into the app. Defined as
+Singleton, as multiple instances of the same API would be illogical.
+Includes the baseURL for newsAPI to build upon and specifies the converter factory.
+Since the response is received in JSON format, the Gson library is used to parse it,
+hence it is the converter factory for the implementation.</p>
+</BODY>
+</HTML>

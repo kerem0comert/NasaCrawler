@@ -1,0 +1,52 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>PagingSource - app</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">app</a>&nbsp;/&nbsp;<a href="../index.html">org.keremcomert.nasacrawler.api</a>&nbsp;/&nbsp;<a href="./index.html">PagingSource</a><br/>
+<br/>
+<h1>PagingSource</h1>
+<code><span class="keyword">class </span><span class="identifier">PagingSource</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">PagingSource</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">,</span>&nbsp;<a href="../../org.keremcomert.nasacrawler.model/-photo/index.html"><span class="identifier">Photo</span></a><span class="symbol">&gt;</span></code>
+<h3>Parameters</h3>
+<p><a name="sourceApi"></a>
+<code>sourceApi</code> - is the API requesting the pages. There is only one instance within this app</p>
+<p><a name="selectedRover"></a>
+<code>selectedRover</code> - The selectedRover can be either of three possible rovers in Mars
+right now that we can crawl from: Curiosity, Opportunity, Spirit</p>
+<p><strong>Return</strong><br/>
+PagingSource, with the requested articles retrieved from the API endpoint.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">PagingSource</span><span class="symbol">(</span><span class="identifier" id="org.keremcomert.nasacrawler.api.PagingSource$<init>(org.keremcomert.nasacrawler.api.SourceApi, kotlin.String)/sourceApi">sourceApi</span><span class="symbol">:</span>&nbsp;<a href="../-source-api/index.html"><span class="identifier">SourceApi</span></a><span class="symbol">, </span><span class="identifier" id="org.keremcomert.nasacrawler.api.PagingSource$<init>(org.keremcomert.nasacrawler.api.SourceApi, kotlin.String)/selectedRover">selectedRover</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="get-refresh-key.html">getRefreshKey</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getRefreshKey</span><span class="symbol">(</span><span class="identifier" id="org.keremcomert.nasacrawler.api.PagingSource$getRefreshKey(androidx.paging.PagingState((kotlin.Int, org.keremcomert.nasacrawler.model.Photo)))/state">state</span><span class="symbol">:</span>&nbsp;<span class="identifier">PagingState</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">,</span>&nbsp;<a href="../../org.keremcomert.nasacrawler.model/-photo/index.html"><span class="identifier">Photo</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="load.html">load</a></p>
+</td>
+<td>
+<code><span class="keyword">suspend</span> <span class="keyword">fun </span><span class="identifier">load</span><span class="symbol">(</span><span class="identifier" id="org.keremcomert.nasacrawler.api.PagingSource$load(androidx.paging.PagingSource.LoadParams((kotlin.Int)))/params">params</span><span class="symbol">:</span>&nbsp;<span class="identifier">LoadParams</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">LoadResult</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">,</span>&nbsp;<a href="../../org.keremcomert.nasacrawler.model/-photo/index.html"><span class="identifier">Photo</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

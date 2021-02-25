@@ -1,0 +1,27 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>PhotoViewModel.<init> - app</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">app</a>&nbsp;/&nbsp;<a href="../index.html">org.keremcomert.nasacrawler.viewmodel</a>&nbsp;/&nbsp;<a href="index.html">PhotoViewModel</a>&nbsp;/&nbsp;<a href="./-init-.html">&lt;init&gt;</a><br/>
+<br/>
+<h1>&lt;init&gt;</h1>
+<a name="org.keremcomert.nasacrawler.viewmodel.PhotoViewModel$&lt;init&gt;(org.keremcomert.nasacrawler.api.Repository, androidx.lifecycle.SavedStateHandle)"></a>
+<code><span class="identifier">PhotoViewModel</span><span class="symbol">(</span><span class="identifier" id="org.keremcomert.nasacrawler.viewmodel.PhotoViewModel$<init>(org.keremcomert.nasacrawler.api.Repository, androidx.lifecycle.SavedStateHandle)/repository">repository</span><span class="symbol">:</span>&nbsp;<a href="../../org.keremcomert.nasacrawler.api/-repository/index.html"><span class="identifier">Repository</span></a><span class="symbol">, </span><span class="identifier" id="org.keremcomert.nasacrawler.viewmodel.PhotoViewModel$<init>(org.keremcomert.nasacrawler.api.Repository, androidx.lifecycle.SavedStateHandle)/state">state</span><span class="symbol">:</span>&nbsp;<span class="identifier">SavedStateHandle</span><span class="symbol">)</span></code>
+<p>Each photo has its view model, defined to keep in line with the MVVM Architecture Pattern.
+This provides safety in cases of app's variables being killed in Fragment's lifecycles and
+low memory conditions. It also creates another layer between the view and the data, as it would
+be bad practice to let Fragment handle the state of the data. As Google advises, the Fragment and
+Activity classes should only be concerned with user interactions.</p>
+<h3>Parameters</h3>
+<p><a name="repository"></a>
+<code>repository</code> - is provided to access the middle-ware to fetch data</p>
+<p><a name="state"></a>
+<code>state</code> - is provided by Android's lifecycle methods, and makes sure that the livedata remains
+safe when there is a change in state (such as app being on background or screen orientation changes.)
+The Assisted annotation is used, since sometimes Hilt handles the data injection, and sometimes it is handled
+by the user, hence the name Asisted.</p>
+</BODY>
+</HTML>

@@ -1,0 +1,27 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>PagingSource.load - app</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">app</a>&nbsp;/&nbsp;<a href="../index.html">org.keremcomert.nasacrawler.api</a>&nbsp;/&nbsp;<a href="index.html">PagingSource</a>&nbsp;/&nbsp;<a href="./load.html">load</a><br/>
+<br/>
+<h1>load</h1>
+<a name="org.keremcomert.nasacrawler.api.PagingSource$load(androidx.paging.PagingSource.LoadParams((kotlin.Int)))"></a>
+<code><span class="keyword">suspend</span> <span class="keyword">fun </span><span class="identifier">load</span><span class="symbol">(</span><span class="identifier" id="org.keremcomert.nasacrawler.api.PagingSource$load(androidx.paging.PagingSource.LoadParams((kotlin.Int)))/params">params</span><span class="symbol">:</span>&nbsp;<span class="identifier">LoadParams</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">LoadResult</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">,</span>&nbsp;<a href="../../org.keremcomert.nasacrawler.model/-photo/index.html"><span class="identifier">Photo</span></a><span class="symbol">&gt;</span></code>
+<h3>Parameters</h3>
+<p><a name="params"></a>
+<code>params</code> - Includes the current key, needed to know which page the user
+requests the function for.
+The API defines different endpoints depending on specific queries, and within
+the app we have two specific cases. One is the search query the user asks,
+the other is any category selected. The urlToGet is dependent on this,
+as explained in NASA API's documentation.</p>
+<h3>Exceptions</h3>
+<p><a name="HTTPException"></a>
+<code>HTTPException</code> - for 5** response codes.</p>
+<p><strong>Return</strong><br/>
+The LoadResult, that contains the returned images and the keys</p>
+</BODY>
+</HTML>

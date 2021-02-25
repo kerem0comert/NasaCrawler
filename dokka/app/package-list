@@ -1,0 +1,10 @@
+$dokka.format:html
+$dokka.linkExtension:html
+
+org.keremcomert.nasacrawler.api
+org.keremcomert.nasacrawler.controller
+org.keremcomert.nasacrawler.di
+org.keremcomert.nasacrawler.model
+org.keremcomert.nasacrawler.util
+org.keremcomert.nasacrawler.view
+org.keremcomert.nasacrawler.viewmodel
