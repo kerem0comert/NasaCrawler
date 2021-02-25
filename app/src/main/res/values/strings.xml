@@ -6,4 +6,7 @@
     <string name="fragment_photos_label">Mars Photos</string>
     <string name="fragment_photo_details_label">{selectedRover} - Photo #{selectedPhotoID}</string>
     <string name="rover_dates">Launch: %1$s - Landing: %2$s</string>
+    <string name="problem_loading_results">There was a problem loading results.</string>
+    <string name="reload">Reload</string>
+    <string name="no_results_in_query">There are no results in the search you\'ve requested.</string>
 </resources>

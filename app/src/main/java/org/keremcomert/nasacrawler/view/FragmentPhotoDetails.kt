@@ -10,6 +10,7 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import dagger.hilt.android.AndroidEntryPoint
 import org.keremcomert.nasacrawler.R
 import org.keremcomert.nasacrawler.databinding.FragmentPhotoDetailsBinding
+import java.util.*
 
 
 @AndroidEntryPoint
@@ -34,7 +35,7 @@ class FragmentPhotoDetails: Fragment(R.layout.fragment_photo_details) {
             tvRoverName.text = args.photo.rover.name
             tvRoverDate.text = getString(R.string.rover_dates,
                 args.photo.rover.launchDate, args.photo.rover.landingDate)
-            tvRoverStatus.text = args.photo.rover.status
+            tvRoverStatus.text = (args.photo.rover.status).capitalize(Locale.ROOT)
         }
     }
 
