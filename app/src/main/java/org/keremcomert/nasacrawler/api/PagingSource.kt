@@ -32,7 +32,7 @@ class PagingSource(
      *
      * @return The LoadResult, that contains the returned images and the keys
      * @exception HTTPException for 5** response codes.
-     *
+     *@exception IOException for connectivity related issues.
      */
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Photo> {
         val currentPage = params.key ?: INITIAL_PAGE_INDEX

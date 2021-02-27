@@ -5,7 +5,6 @@
     android:gravity="center_horizontal"
     android:orientation="vertical"
     android:id="@+id/llViewArticleLoadState"
-    android:visibility="gone"
     android:padding="8dp">
 
     <ProgressBar

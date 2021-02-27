@@ -82,7 +82,7 @@ class FragmentPhotos : Fragment(R.layout.fragment_photos), PhotoAdapter.OnPhotoS
          */
         photoAdapter.addLoadStateListener { loadState ->
             b?.apply {
-                viewPhotoLoadState.bReload.isVisible = loadState.source.refresh is LoadState.Loading
+                viewPhotoLoadState.pbLoadingContent.isVisible = loadState.source.refresh is LoadState.Loading
                 viewPhotoLoadState.tvErrorWithResults.isVisible = loadState.source.refresh is LoadState.Error
                 viewPhotoLoadState.bReload.isVisible = loadState.source.refresh is LoadState.Error
                 rvPhotos.isVisible = loadState.source.refresh is LoadState.NotLoading
