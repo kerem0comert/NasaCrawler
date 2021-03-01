@@ -6,7 +6,6 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.tabs.TabLayout
@@ -23,18 +22,17 @@ class FragmentPhotos : Fragment(R.layout.fragment_photos), PhotoAdapter.OnPhotoS
     private val viewModel by viewModels<PhotoViewModel>()
     private var b: FragmentPhotosBinding? = null
     private lateinit var photoAdapter: PhotoAdapter
-    private val args: FragmentPhotosArgs by navArgs()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         b = FragmentPhotosBinding.bind(view)
-        viewModel.currentRover.value = args.selectedRover
         initRecyclerView()
         initTabLayout()
     }
 
     private fun initTabLayout() {
         b?.apply {
+            tabLayoutRovers.selectTab(tabLayoutRovers.getTabAt(getTabPosition(viewModel.currentRover.value)))
             tabLayoutRovers.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
                 override fun onTabSelected(tab: TabLayout.Tab?) {
                     viewModel.currentRover.value = tab?.text.toString()
@@ -44,6 +42,15 @@ class FragmentPhotos : Fragment(R.layout.fragment_photos), PhotoAdapter.OnPhotoS
                 override fun onTabUnselected(tab: TabLayout.Tab?) {}
                 override fun onTabReselected(tab: TabLayout.Tab?) {}
             })
+        }
+    }
+
+    private fun getTabPosition(roverName : String?): Int{
+        return when(roverName){
+            getString(R.string.curiosity) -> 0
+            getString(R.string.opportunity) -> 1
+            getString(R.string.spirit) -> 2
+            else -> 0
         }
     }
 
